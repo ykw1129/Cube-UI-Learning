@@ -1,18 +1,52 @@
 <template>
-    <div id="login">
-        <cube-button :light="true">Light Button</cube-button>
-        <cube-button :inline="true">Inline Button</cube-button>
-        <cube-button :outline="true">Outline Button</cube-button>
-        <cube-button :primary="true">Primary Button</cube-button>
-    </div>
+  <div id="login">
+    <text1 ref="text"></text1>
+    <cube-input
+      v-model="value"
+      ref="loginvalue"
+    ></cube-input>
+    <cube-button :light="true">{{value}}</cube-button>
+    <cube-button :light="true">{{title}}</cube-button>
+  </div>
 </template>
 
 <script>
-    export default {
-
+import text1 from "@/components/text/text";
+export default {
+  data() {
+    return {
+      value:"",
+      title:""
+    };
+  },
+  name: "login",
+  components: {
+    text1
+  },
+  watch: {
+    value(newV) {
+      if (newV.length > 10) {
+        newV = newV.slice(0, 10);
+        this.$nextTick(() => {
+          this.value = newV;
+          this.title = newV
+        });
+      }
     }
+  },
+  created() {
+    // console.log("created" + this.$refs.text);
+    //   created钩子函数dom节点还没被渲染
+    //使用$nextTick可以使在dom节点还没挂载还没渲染出来的时候
+    // 需要操作dom节点的js可以放在nexTick里面
+    this.$nextTick(()=>{
+        console.log("created(nexttick)" + this.$refs.text.$el.innerHTML)
+    })
+  },
+  mounted() {
+    console.log("mounted" + this.$refs.text.$el.innerHTML);
+  }
+};
 </script>
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>

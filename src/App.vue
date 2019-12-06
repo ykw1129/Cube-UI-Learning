@@ -5,16 +5,14 @@
 </template>
 
 <script>
-import login from './components/login/login'
+import login from "./components/login/login";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     login
   }
-}
+};
 </script>
 
-<style lang="stylus">
-
-</style>
+<style lang="stylus"></style>
