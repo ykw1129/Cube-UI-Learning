@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "core-js": "^3.4.3",
-    "cube-ui": "^1.12.34",
     "vue": "^2.6.10"
   },
   "devDependencies": {
