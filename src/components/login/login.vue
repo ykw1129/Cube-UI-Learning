@@ -9,7 +9,6 @@
       ref="loginvalue"
     ></cube-input>
     <cube-button :light="true">{{value}}</cube-button>
-    <cube-button :light="true">{{title}}</cube-button>
   </div>
 </template>
 
@@ -35,7 +34,6 @@ export default {
         newV = newV.slice(0, 10);
         this.$nextTick(() => {
           this.value = newV;
-          this.title = newV;
         });
       }
     }
