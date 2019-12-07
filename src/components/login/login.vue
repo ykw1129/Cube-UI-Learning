@@ -1,5 +1,8 @@
 <template>
   <div id="login">
+    <div id="extend">
+
+    </div>
     <text1 ref="text"></text1>
     <cube-input
       v-model="value"
@@ -12,11 +15,14 @@
 
 <script>
 import text1 from "@/components/text/text";
+
 export default {
+  extends:{
+    
+  },
   data() {
     return {
-      value:"",
-      title:""
+      value: ""
     };
   },
   name: "login",
@@ -29,7 +35,7 @@ export default {
         newV = newV.slice(0, 10);
         this.$nextTick(() => {
           this.value = newV;
-          this.title = newV
+          this.title = newV;
         });
       }
     }
@@ -39,9 +45,9 @@ export default {
     //   created钩子函数dom节点还没被渲染
     //使用$nextTick可以使在dom节点还没挂载还没渲染出来的时候
     // 需要操作dom节点的js可以放在nexTick里面
-    this.$nextTick(()=>{
-        console.log("created(nexttick)" + this.$refs.text.$el.innerHTML)
-    })
+    this.$nextTick(() => {
+      console.log("created(nexttick)" + this.$refs.text.$el.innerHTML);
+    });
   },
   mounted() {
     console.log("mounted" + this.$refs.text.$el.innerHTML);
