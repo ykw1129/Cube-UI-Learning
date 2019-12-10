@@ -39,15 +39,9 @@ export default {
     //   created钩子函数dom节点还没被渲染
     //使用$nextTick可以使在dom节点还没挂载还没渲染出来的时候
     // 需要操作dom节点的js可以放在nexTick里面
-<<<<<<< HEAD
 /*     this.$nextTick(()=>{
         console.log("created(nexttick)" + this.$refs.text.$el.innerHTML)
     }) */
-=======
-    this.$nextTick(() => {
-      console.log("created(nexttick)" + this.$refs.text.$el.innerHTML);
-    });
->>>>>>> b472026911ba4dd8aec298f7ea97f6352c4a5449
   },
   mounted() {
     // console.log("mounted" + this.$refs.text.$el.innerHTML);
