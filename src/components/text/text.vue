@@ -1,6 +1,5 @@
 <template>
     <div id="test">
-        this test components
     </div>
 </template>
 

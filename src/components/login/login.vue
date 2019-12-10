@@ -1,11 +1,10 @@
 <template>
   <div id="login">
-    <text1 ref="text"></text1>
     <cube-input
       v-model="value"
       ref="loginvalue"
     ></cube-input>
-    <cube-button :light="true">{{value}}</cube-button>
+    <cube-button :light="true">点击登录</cube-button>
   </div>
 </template>
 
@@ -36,12 +35,12 @@ export default {
     //   created钩子函数dom节点还没被渲染
     //使用$nextTick可以使在dom节点还没挂载还没渲染出来的时候
     // 需要操作dom节点的js可以放在nexTick里面
-    this.$nextTick(()=>{
+/*     this.$nextTick(()=>{
         console.log("created(nexttick)" + this.$refs.text.$el.innerHTML)
-    })
+    }) */
   },
   mounted() {
-    console.log("mounted" + this.$refs.text.$el.innerHTML);
+    // console.log("mounted" + this.$refs.text.$el.innerHTML);
   }
 };
 </script>
