@@ -1,5 +1,6 @@
 <template>
     <div id="test">
+        test组件
     </div>
 </template>
 
@@ -14,5 +15,5 @@ export default {
 </script>
 
 <style>
-
+    
 </style>
