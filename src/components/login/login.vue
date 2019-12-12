@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import text1 from "@/components/text/text";
 
 export default {
   extends:{
@@ -22,7 +21,6 @@ export default {
   },
   name: "login",
   components: {
-    text1
   },
   watch: {
     value(newV) {
