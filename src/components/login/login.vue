@@ -10,24 +10,24 @@
 </template>
 
 <script>
-import { type } from 'os';
+import { type } from "os";
 export default {
   data() {
     return {
       validity: {},
       valid: undefined,
       model: {
-        UserValue: "",
-        Password:""
+        username: "",
+        password: ""
       },
       schema: {
         groups: [
           {
-            legend:"用户登录",
+            legend: "用户登录",
             fields: [
               {
                 type: "input",
-                modelKey: "UserValue",
+                modelKey: "username",
                 label: "用户名",
                 props: {
                   placeholder: "请输入您的用户名"
@@ -36,19 +36,20 @@ export default {
                   required: true
                 },
                 // validating when blur
-                trigger: "blur"
+                trigger: "blur",
+                
               },
               {
-                type:"input",
-                modelKey:"Password",
-                label:"密码",
-                props:{
-                  placeholder:"请输入您的密码"
+                type: "input",
+                modelKey: "password",
+                label: "密码",
+                props: {
+                  placeholder: "请输入您的密码"
                 },
-                eye:true,
-                rules:{
-                  required:true,
-                  password:true
+                eye: true,
+                rules: {
+                  required: true,
+                  password: true
                 }
               }
             ]
@@ -58,10 +59,6 @@ export default {
               {
                 type: "submit",
                 label: "Submit"
-              },
-              {
-                type: "reset",
-                label: "Reset"
               }
             ]
           }
@@ -69,7 +66,7 @@ export default {
       },
       options: {
         scrollToInvalidField: true,
-        layout: "standard" // classic fresh
+        layout: "classic" // classic fresh 布局方式
       }
     };
   },
@@ -109,6 +106,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.cube-form-group-legend 
-    text-align center
+.cube-form-group-legend {
+  text-align: center;
+}
 </style>
