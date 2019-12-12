@@ -1,27 +1,76 @@
 <template>
   <div id="login">
-    <cube-input
-      v-model="userName"
-      :maxlength="maxlength"
-    ></cube-input>
-    <cube-input 
-    v-model="password"
-    type="password"
-    eye="eye"
-    ></cube-input>
-    <cube-button :light="true">点击登录</cube-button>
+    <cube-form
+      :model="model"
+      :schema="schema"
+      :immediate-validate="false"
+      :options="options"
+    ></cube-form>
   </div>
 </template>
 
 <script>
+import { type } from 'os';
 export default {
-  extends: {},
   data() {
     return {
-      userName: "",
-      password: "",
-      maxlength: 50,
-      eye:"true"
+      validity: {},
+      valid: undefined,
+      model: {
+        UserValue: "",
+        Password:""
+      },
+      schema: {
+        groups: [
+          {
+            legend:"用户登录",
+            fields: [
+              {
+                type: "input",
+                modelKey: "UserValue",
+                label: "用户名",
+                props: {
+                  placeholder: "请输入您的用户名"
+                },
+                rules: {
+                  required: true
+                },
+                // validating when blur
+                trigger: "blur"
+              },
+              {
+                type:"input",
+                modelKey:"Password",
+                label:"密码",
+                props:{
+                  placeholder:"请输入您的密码"
+                },
+                eye:true,
+                rules:{
+                  required:true,
+                  password:true
+                }
+              }
+            ]
+          },
+          {
+            fields: [
+              {
+                type: "submit",
+                label: "Submit"
+              },
+              {
+                type: "reset",
+                label: "Reset"
+              }
+            ]
+          }
+        ]
+      },
+      options: {
+        scrollToInvalidField: true,
+        layout: "standard" // classic fresh
+      }
     };
   },
   name: "login",
@@ -45,7 +94,6 @@ export default {
         });
       }
     }
-    
   },
   created() {
     /*     console.log("created" + this.$refs.text);
@@ -56,10 +104,11 @@ export default {
         console.log("created(nexttick)" + this.$refs.text.$el.innerHTML)
     }) */
   },
-  mounted() {
-
-  }
+  mounted() {}
 };
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.cube-form-group-legend 
+    text-align center
+</style>
